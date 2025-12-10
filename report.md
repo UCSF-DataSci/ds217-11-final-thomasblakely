@@ -130,12 +130,12 @@ Following the extraction of our temporal features, six derived and four rolling-
 
 **Rolling Window Features**
 
-| **Variable**              | **Formula**                                |
-|---------------------------|--------------------------------------------|
-| `air_temp_rolling_24h`    | $\mathrm{RollingMean}_{24}(T_{air})$       | 
-| `humidity_rolling_24h`    | $\mathrm{RollingMean}_{24}(H)$             |
-| `wind_speed_rolling_7h`   | $\mathrm{RollingMean}_{7}(WS)$             |
-| `solar_radiation_7h`      | $\mathrm{RollingMean}_{7}(SR)$             |
+| **Variable**              | **Formula**                       |
+|---------------------------|-----------------------------------|
+| `air_temp_rolling_24h`    | $RollingMean_{24} (T_{air})$      | 
+| `humidity_rolling_24h`    | $RollingMean_{24}(H)$             |
+| `wind_speed_rolling_7h`   | $RollingMean_{7}(WS)$             |
+| `solar_radiation_7h`      | $RollingMean_{7}(SR)$             |
 
 **Note:** The derivation of 24 hour rolling variables specific to each station leads to the creation of 46 (0.0%) NaN values. As modeling requires complete data, rows containing these missing values were dropped.
 
