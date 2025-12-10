@@ -121,18 +121,18 @@ Following the extraction of our temporal features, six derived and four rolling-
 
 | **Variable**          | **Formula**                          |
 |-----------------------|--------------------------------------|
-| `temp_difference`     | $T_{\text{air}} - T_{\text{wetbulb}}$|
-| `temp_humidity`       | $T_{\text{air}} \times H$            |
+| `temp_difference`     | $T_{air} - T_{wetbulb}$              |
+| `temp_humidity`       | $T_{air} \times H$                   |
 | `wind_speed_squared`  | $(WS)^2$                             |
 | `wind_solar`          | $WS \times SR$                       |
 | `wind_ratio`          | $\dfrac{WS}{MS + 1}$                 |
-| `temp_category`       | $\text{bin}(T_{\text{air}})$         |
+| `temp_category`       | $\text{bin}(T_{air})$                |
 
 **Rolling Window Features**
 
 | **Variable**              | **Formula**                              |
 |---------------------------|------------------------------------------|
-| `air_temp_rolling_24h`    | $\text{RollingMean}_{24}(T_{\text{air}})$|
+| `air_temp_rolling_24h`    | $\text{RollingMean}_{24}(T_{air})$       | 
 | `humidity_rolling_24h`    | $\text{RollingMean}_{24}(H)$             |
 | `wind_speed_rolling_7h`   | $\text{RollingMean}_{7}(WS)$             |
 | `solar_radiation_7h`      | $\text{RollingMean}_{7}(SR)$             |
