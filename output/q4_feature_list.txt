@@ -1,0 +1,10 @@
+temp_difference
+temp_humidity
+wind_speed_squared
+wind_solar
+wind_ratio
+temp_category
+air_temp_rolling_24h
+humidity_rolling_24h
+wind_speed_rolling_7h
+solar_radiation_7h

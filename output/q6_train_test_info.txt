@@ -1,0 +1,13 @@
+TRAIN/TEST SPLIT INFORMATION
+==========================
+
+Split Method: Temporal (70/30 split by time)
+
+Training Set Size: 84255 samples
+Test Set Size: 36110 samples
+
+Training Date Range: 2015-05-28 19:00:00 to 2022-01-30 21:00:00
+Test Date Range: 2022-01-30 22:00:00 to 2025-12-08 16:00:00
+
+Number of Features: 12
+Target Variable: Barometric Pressure

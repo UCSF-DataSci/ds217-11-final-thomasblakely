@@ -1,0 +1,17 @@
+KEY PATTERNS IDENTIFIED
+======================
+
+TEMPORAL TRENDS:
+- Barometric pressure shows declining trend from 2015-2025
+- Unusual spike and subsequent decline from 2021-2023. Grounds for further research
+- The last year with complete data, 2024, shows the lowest total yearly pressure (~8M hPa)
+
+DAILY PATTERNS:
+- Barometric pressure shows expected cyclic trend (peaks 10-12 PM, craters 4-6 PM)
+- Barometric pressure remains roughly consistent throughout the day (bounds [994,996])
+- Average hourly barometric pressure is 994.7 hPa
+
+CORRELATIONS:
+- Barometric pressure shows low correlation with all other features (maximum absolute correlation: 0.28)
+- Air temperature and Wet bulb temperature nearly perfectly correlated: 0.98
+- Wind speed shows low correlation (< |0.22|) with all other non-derived features

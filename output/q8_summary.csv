@@ -1,0 +1,4 @@
+Metric,Linear Regression,XGBoost
+R²,0.1587,0.2305
+RMSE,6.45,6.17
+MAE,5.01,4.77

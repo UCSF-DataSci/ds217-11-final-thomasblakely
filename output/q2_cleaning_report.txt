@@ -1,0 +1,42 @@
+DATA CLEANING REPORT
+====================
+
+Rows before cleaning: 196555
+
+Missing Data Handling:
+- Foster Weather Station: 76069 rows (38.7%)
+Method: Removed station from dataset
+Result: All rows removed from dataset
+
+- Air Temperature: 75 missing values (0.0%)
+Method: Forward-fill imputation by station
+Result: All missing values filled
+
+- Barometric Pressure: 73 missing values + 6 improperly coded (0.0%)
+Method: Improperly coded values converted to NaN. Forward-fill imputation by station
+Result: All missing values filled
+
+- Total Rain: Negative values present
+Method: Negative values converted to NaN. Forward-fill imputation by station
+Result: All missing values filled
+
+- Solar Radiation: Negative values and nighttime missing data
+Method: Negative values set to NaN, forward-fill. Remaining missing value (nighttime) set to 0
+Result: All missing values filled
+
+- Maximum Wind Speed: Zero values detected
+Method: Zero values set to NaN, forward-fill imputation
+Result: All missing values filled
+
+Outlier Handling:
+Method: IQR Method (2xIQR) at Domain Knowledge
+- Wind Speed + Maximum Wind Speed: Capped [0, 87]
+Result: Negative values and values greater than ever recorded values set to bounds
+
+Duplicates Removed: 0
+
+Data Type Conversions:
+- Measurement Timestamp: Converted to datetime64[ns]
+- Measurement Timestamp Label: Converted to datetime64[ns]
+
+Rows after cleaning: 120411

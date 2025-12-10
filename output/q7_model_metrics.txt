@@ -1,0 +1,18 @@
+MODEL PERFORMANCE METRICS
+========================
+
+LINEAR REGRESSION:
+   Train R²: 0.2136
+   Test R²: 0.1587
+   Train RMSE: 5.99
+   Test RMSE: 6.45
+   Train MAE: 4.63
+   Test MAE: 5.01
+
+XGBOOST:
+   Train R²: 0.5491
+   Test R²: 0.2305
+   Train RMSE: 4.53
+   Test RMSE: 6.17
+   Train MAE: 3.49
+   Test MAE: 4.77

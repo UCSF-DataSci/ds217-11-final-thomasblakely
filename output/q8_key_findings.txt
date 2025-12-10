@@ -1,0 +1,22 @@
+KEY FINDINGS SUMMARY
+===================
+
+MODEL PERFORMANCE:
+- Best performing model: XGBoost (R² = 0.2305)
+- Both models show poor performance (R² < 0.30)
+- RMSE (6.17 hPa) and MAE (4.77 hPa) for XGBoost is too large for reliable use as a predictive model (3 times larger than daily cycle)
+
+FEATURE IMPORTANCE:
+- Most important feature: temp_humidity (importance: 0.2218)
+- Top 3 features make up 44% of importance
+- Feature importance is evenly spread out: 8 features have importance between 0.05-0.10
+- Temporal features appear less important, on average, than base features
+
+TEMPORAL PATTERNS:
+Clear yearly-decline in barometric pressure
+Hourly barometric pressure fluctuates between 994-996 hPa
+
+DATA QUALITY:
+Dataset Reduced: 196,555 → 120,365 rows (61.1%)
+Sites appear to mix recording methods for missing/outlier values
+Missing/unusual values handled primarily via forward-fill
