@@ -28,8 +28,6 @@ Our analysis began by looking at the structure of the dataset. Overall, the dime
     - Features containing complete data, however, appear to have implausible values.
     - Examples: Solar Radiation (-100,000), Wind Speed (999.9) 
 
-
-
 Initial visualizations showed:
 - *Histogram of Solar Radiation:* Histogram was subsetted to include all values ≥ -10,000. As the histogram starts at zero, we see that clearly sentinel value imputation was used here.
 - *Time Series Plot of Maximum Wind Speed:* Seasonal patterns visible in maximum wind speed.
@@ -44,9 +42,9 @@ Data cleaning began with the decision to exclude data from the Foster Weather St
 
 Multiple methods were then taken to address missing, placeholder, and unusual values. Methods include clipping features to realistic ranges, recoding features with placeholder values, and primarily using forward-filling for imputation to preserve temporality. *Solar Radiation*, however, was imputed with the value 0, as an analysis of when its values were coded revealed that the unusual values corresponded to the hours of 9:00 PM to 5:00 AM, when solar radiation is expected to be zero.
 
-Below is our cleaning report:
+Below is an overview of our cleaning process:
 
-**DATA CLEANING REPORT**
+**Cleaning Process**
 
 Rows before cleaning: 196555
 
@@ -105,6 +103,8 @@ The following temporal features were extracted following the recommended guideli
     - `day_name`: Day name (Monday-Sunday)
     - `is_weekend`: Binary indicator (0: Monday-Friday, 1: Saturday-Sunday)
 
+Following the cleaning and feature extraction process, our dataset covers over 10 years (2015-2025) of measurement. With this amount of data, if there is some relationship between barometric pressure and the other surface-level indicators, our model should be able to detect it.
+
 ### Phase 4: Feature Engineering
 
 Following the extraction of our temporal features, six derived and four rolling-window variables were created to explore potential feature relationships and capture temporal variability.
@@ -132,7 +132,7 @@ Following the extraction of our temporal features, six derived and four rolling-
 
 | **Variable**              | **Formula**                       |
 |---------------------------|-----------------------------------|
-| `air_temp_rolling_24h`    | $RollingMean_{24} (T_{air})$      | 
+| `air_temp_rolling_24h`    | $RollingMean_{24}(T_{air})$      | 
 | `humidity_rolling_24h`    | $RollingMean_{24}(H)$             |
 | `wind_speed_rolling_7h`   | $RollingMean_{7}(WS)$             |
 | `solar_radiation_7h`      | $RollingMean_{7}(SR)$             |
@@ -278,31 +278,31 @@ The analysis revealed several important temporal patterns:
 
 **Anomalies:**
 - Foster Weather Station did not record data on several relevant features. 
-- Due to consistent lack of data over the 11-year span, this can either be intentional due to location or a general lack of funding to upgrade sensors.
+- Due to consistent lack of data over the 11-year span, Foster Weather Station's missingness can either be intentional due to location or a general lack of funding to upgrade sensors.
 
 ## Limitations & Next Steps
 
 **Limitations:**
 
 1. **Data Quality:**
-   - Significant alterations were made to the dataset in attempt to make valid for use in inference. Bias introduced, both statistically through imputation and methodologically through restriction.
-   - Outlier capping may have removed some valid extreme events
-   - Only 2 weather stations used, limited data and spatial coverage
+   - Significant alterations were made to the dataset in an attempt to make it valid for use in inference. Bias is introduced, both statistically through imputation and methodologically through restriction.
+   - Outlier capping may have removed some valid extreme events.
+   - Only 2 weather stations used, limited data and spatial coverage.
 
 2. **Model Limitations:**
    - Linear Regression (R² = 0.1587) and XGBoost had poor performance (R² = 0.2305), indicating that neither linear nor non-linear relationships are sufficient given the current data.
-   - Model appears unable to differentiate importance between feature types.
+   - The XGBoost model appears to be unable to differentiate importance between feature types.
    - RMSE of 6.17 hPa and MAE 4.77 hPa are too high for meaningful use in barometric pressure prediction settings.
 
 3. **Feature Engineering:**
-   - Some potentially useful features may not have been created (e.g., lag features, interaction terms)
-   - Rolling window sizes (7h, 24h) were chosen somewhat arbitrarily
-   - External data (e.g., weather forecasts, lake conditions) not incorporated
+   - Maintained fairly basic derivation of additional features. Future models should look at the inclusion of lag and/or interaction terms.
+   - Rolling window sizes (7h, 24h) were chosen arbitrarily. Future modelling should look closer at hour-by-hour data to determine appropriate sizes.
+   - Spatial data, like distance between locationsm gathered by satellites, was not incorporated.
    - Not all base and derived features were utilized, potentially leaving some information off of the table.
 
 4. **Scope:**
-   - Only one target variable analyzed; multi-target modeling could provide additional insights
-   - Spatial relationships between stations not analyzed
+   - Only one target variable analyzed. Perhaps analyzing two target variables, like humidity, will provide more elucidating insights.
+   - Only two stations were included in this analysis, limiting the generalizability of our results from the entirety of Chicago's beaches.
 
 **Next Steps:**
 
